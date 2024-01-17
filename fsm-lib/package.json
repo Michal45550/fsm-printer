@@ -1,0 +1,16 @@
+{
+  "name": "fsm-lib",
+  "version": "1.0.0",
+  "description": "A Finite State Machine library",
+  "repository": {
+    "type":  "git",
+    "url": "git+"
+  },
+  "main": "src/index.js",
+  "keywords": ["finite state machine", "fsm", "library"],
+  "author": "Michal Rosen",
+  "license": "MIT",
+  "scripts": {
+    "start": "start"
+  }
+}

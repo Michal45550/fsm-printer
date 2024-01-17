@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    background: #F3F3F3;
+    padding: 11px;
+    border-radius: 0 0 5px 5px;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2px;
+    font-variant: all-small-caps;
+    color: #444444;
+    margin-left: 13px;
+}
+
+.topLine {
+    border-top: 0.5px solid lightgray;
+}
+
+.bottomLine {
+    border-bottom: 0.5px solid lightgray;
+}

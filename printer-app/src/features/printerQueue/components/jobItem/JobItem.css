@@ -1,0 +1,103 @@
+.job {
+    background: #F7F9FC;
+    border: 1px solid #003A5D;
+    border-radius: 8px;
+    height: 98px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reorder {
+    width: 55px;
+    height: 100%;
+    border-right: 1px solid #003A5D;
+}
+
+.reorder-button {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.reorder-button:first-of-type {
+    border-bottom: 1px solid #003A5D;
+}
+
+.disable-button {
+    cursor: default;
+}
+
+.disable-button .arrow-up {
+    border-bottom: 7px solid #bfbdbd;
+}
+
+.disable-button .arrow-down {
+    border-top: 7px solid #bfbdbd;
+}
+
+.disable-button .underline {
+    background: #bfbdbd;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #33AADD;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #33AADD;
+}
+
+.underline {
+    margin: 6px 0 6px 0;
+    background: #33AADD;
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.job-image {
+    margin: 17px;
+}
+
+.details {
+    width: 500px;
+}
+
+.details h3 {
+    margin-bottom: 7px;
+    margin-top: 0;
+}
+
+.details label {
+    margin-left: 5px;
+}
+
+.duration {
+    position: relative;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+
+.duration .clock-icon {
+    position: absolute;
+    left: -20px;
+    bottom: 3px;
+}
+
+.delete {
+    margin: 12px;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.printer-queue-app {
+    display: flex;
+    justify-content: center;
+    padding: 32px 32px 72px 32px;
+    min-height: calc(100vh - 104px);
+}
+
+.divider {
+    border: 1px solid gray;
+    margin: 0 24px 0 24px;
+}

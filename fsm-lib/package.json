@@ -3,14 +3,29 @@
   "version": "1.0.0",
   "description": "A Finite State Machine library",
   "repository": {
-    "type":  "git",
+    "type": "git",
     "url": "git+"
   },
   "main": "src/index.js",
-  "keywords": ["finite state machine", "fsm", "library"],
+  "keywords": [
+    "finite state machine",
+    "fsm",
+    "library"
+  ],
   "author": "Michal Rosen",
   "license": "MIT",
   "scripts": {
-    "start": "start"
+    "start": "start",
+    "test": "jest"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "@types/jest": "^29.5.11",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }

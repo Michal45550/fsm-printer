@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {toHoursAndMinutesDisplay} from "../../utils/utils";
 import {CANCEL_JOB_REQUESTED, DELETE_JOB_REQUESTED} from "../../actions";
 import img from '../../assets/3d-modeling.png';
+import deleteIcon from '../../assets/delete.png';
 
 const PrintingJob = () => {
 
@@ -33,11 +34,10 @@ const PrintingJob = () => {
                 title={`CURRENT PRINTING JOB  ${job ? '|' : ''}  [${duration || ''} LEFT] ${job?.status === 'stopped' ? "SOPPED" : ''}`}
                 bottomLine={true}
             >
-                {job && <button className="cancel-button" onClick={handleDelete}>
-                    <div className="pause-icon"/>
-                    <div className="pause-icon"/>
+                {job && job.status === "stopped" && <button className="cancel-button" onClick={handleDelete}>
+                    <img src={deleteIcon} alt="Delete" width="30px" height="30px"/>
                 </button>}
-                {job && <button className="cancel-button" onClick={handleCancel}>
+                {job && job.status === "printing" && <button className="cancel-button" onClick={handleCancel}>
                     <div className="pause-icon"/>
                     <div className="pause-icon"/>
                 </button>}

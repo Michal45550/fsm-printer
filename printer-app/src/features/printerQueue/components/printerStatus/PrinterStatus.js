@@ -3,6 +3,10 @@ import SubHeader from "../subHeader/SubHeader";
 import {useEffect, useState} from "react";
 import {createMachine} from "fsm-lib";
 import {useSelector} from "react-redux";
+import ready from '../../assets/printer-ready.png';
+import printing from '../../assets/printer-printing.png';
+import stuck from '../../assets/printer-stuck.png';
+
 
 const stateMap = {
     initial: "ready",
@@ -26,29 +30,41 @@ const PrinterStatus = () => {
 
     const printingJobStatus = useSelector(({PrinterQueue}) => PrinterQueue.printingJob?.status);
 
-    const [currentState, setCurrentState] = useState();
+    const [printerState, setPrinterState] = useState();
+    const [img, setImg] = useState('');
 
-    const handleTransition = (action) => {
-        setCurrentState(fsm.transition(action));
-    };
+    const printerStateImg = {
+        "ready": ready,
+        "printing": printing,
+        "stuck": stuck
+    }
 
-    useEffect( () => {
-        setCurrentState(fsm.currentState());
+    // const handleTransition = (action) => {
+    //     setPrinterState(fsm.transition(action));
+    // };
+
+    useEffect(() => {
+        setPrinterState(fsm.currentState());
     }, [])
 
-    useEffect( () => {
-        printingJobStatus === undefined && setCurrentState(fsm.transition("JOB_EXIT"));
-        printingJobStatus === "printing" && setCurrentState(fsm.transition("JOB_ENTERED"));
-        printingJobStatus === "stopped" && setCurrentState(fsm.transition("JOB_STOPPED"));
-        console.log(printingJobStatus)
+    useEffect(() => {
+        printingJobStatus === undefined && setPrinterState(fsm.transition("JOB_EXIT"));
+        printingJobStatus === "printing" && setPrinterState(fsm.transition("JOB_ENTERED"));
+        printingJobStatus === "stopped" && setPrinterState(fsm.transition("JOB_STOPPED"));
     }, [printingJobStatus])
+
+    useEffect(() => {
+        setImg(printerStateImg[printerState])
+    }, [printerState])
 
     return (
         <div className="printing-job">
             <SubHeader
-                title={`PRINTER STATUS [${currentState}]`}
+                title={`PRINTER STATUS [${printerState}]`}
                 bottomLine={true}
-            />
+            >
+             <img src={img} alt="printer" width="50px" height="50px"/>
+            </SubHeader>
             <div>
 
                 {/*<p>Current State: {currentState}</p>

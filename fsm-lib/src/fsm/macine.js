@@ -9,7 +9,7 @@ export const createMachine = (stateMap) => {
         if (nextState) {
             state = nextState;
         } else {
-            console.warn(`Invalid transition: ${action} from state ${currentState}`);
+            console.warn(`Invalid transition: ${action} from state ${state}`);
         }
         return state;
     }

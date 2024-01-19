@@ -8,6 +8,9 @@
 #
 /.idea
 
+#
+/dist
+
 # testing
 /coverage
 

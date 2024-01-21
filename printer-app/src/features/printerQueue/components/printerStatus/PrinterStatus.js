@@ -16,10 +16,10 @@ const stateMap = {
         },
         printing: {
             JOB_EXIT: "ready",
-            JOB_STOPPED: "stuck",
+            JOB_STOPPED: "stuck"
         },
         stuck: {
-            JOB_EXIT: "ready",
+            JOB_EXIT: "ready"
         }
     }
 }
@@ -39,18 +39,18 @@ const PrinterStatus = () => {
         "stuck": stuck
     }
 
-    // const handleTransition = (action) => {
-    //     setPrinterState(fsm.transition(action));
-    // };
+    const handleTransition = (event) => {
+        setPrinterState(fsm.transition(event));
+    };
 
     useEffect(() => {
         setPrinterState(fsm.currentState());
     }, [])
 
     useEffect(() => {
-        printingJobStatus === undefined && setPrinterState(fsm.transition("JOB_EXIT"));
-        printingJobStatus === "printing" && setPrinterState(fsm.transition("JOB_ENTERED"));
-        printingJobStatus === "stopped" && setPrinterState(fsm.transition("JOB_STOPPED"));
+        printingJobStatus === undefined && handleTransition("JOB_EXIT");
+        printingJobStatus === "printing" && handleTransition("JOB_ENTERED");
+        printingJobStatus === "stopped" && handleTransition("JOB_STOPPED");
     }, [printingJobStatus])
 
     useEffect(() => {

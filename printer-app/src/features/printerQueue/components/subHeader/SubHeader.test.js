@@ -1,12 +1,22 @@
-import {createStore} from "redux";
 import {mount} from "enzyme";
 import {Provider} from "react-redux";
 import SubHeader from "./SubHeader";
-import reducers from "../../../../store/reducers";
+import createSagaMiddleware from "redux-saga";
+import {configureStore} from "@reduxjs/toolkit";
+import PrinterQueueReducer from "../../reducer";
 
 describe('<SubHeader />', () => {
+
+    const sagaMiddleware = createSagaMiddleware();
+
+    const store = configureStore({
+        reducer: {
+            PrinterQueue: PrinterQueueReducer
+        },
+        middleware: [sagaMiddleware]
+    })
+
     it('renders sub header', () => {
-        const store = createStore(reducers);
 
         const wrapper = mount(
             <Provider store={store}>

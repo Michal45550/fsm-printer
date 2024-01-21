@@ -1,12 +1,22 @@
-import {createStore} from "redux";
-import reducers from "../../../../store/reducers";
 import {mount} from "enzyme";
 import {Provider} from "react-redux";
 import PrintingJob from "./PrintingJob";
+import createSagaMiddleware from "redux-saga";
+import {configureStore} from "@reduxjs/toolkit";
+import PrinterQueueReducer from "../../reducer";
 
 describe('<PrintingJob />', () => {
+
+    const sagaMiddleware = createSagaMiddleware();
+
+    const store = configureStore({
+        reducer: {
+            PrinterQueue: PrinterQueueReducer
+        },
+        middleware: [sagaMiddleware]
+    })
+
     it('renders printing job', () => {
-        const store = createStore(reducers);
 
         const wrapper = mount(
             <Provider store={store}>

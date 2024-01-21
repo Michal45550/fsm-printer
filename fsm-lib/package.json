@@ -4,9 +4,9 @@
   "description": "A Finite State Machine library",
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/Michal45550/fsm-printer/tree/master/fsm-lib"
   },
-  "main": "src/index.js",
+  "main": "dist/lib/index.js",
   "files": ["dist", "package.json"],
   "keywords": [
     "finite state machine",
